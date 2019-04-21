@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1097587220415",
+    "firebase_url": "https://recruiterglobe-c915c.firebaseio.com",
+    "project_id": "recruiterglobe-c915c",
+    "storage_bucket": "recruiterglobe-c915c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1097587220415:android:48c207c840a04b05",
+        "android_client_info": {
+          "package_name": "com.example.recruiterglobe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1097587220415-liai0vacn6f4dcl26np0ugtqf2f6tnmr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.recruiterglobe",
+            "certificate_hash": "6eec5dee73c10cda10921c808607f2d446fc3fe4"
+          }
+        },
+        {
+          "client_id": "1097587220415-e1qbi633c0th5p5l84thchlfsfcpi0b6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxCAloVu6T7p3jB-P8VE4w-R-eSj-gbBQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1097587220415-e1qbi633c0th5p5l84thchlfsfcpi0b6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
