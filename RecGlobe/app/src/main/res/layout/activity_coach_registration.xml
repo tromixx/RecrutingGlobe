@@ -12,9 +12,35 @@
         android:textStyle="bold"
         android:layout_gravity="center"/>
 
-
     <TextView
         android:layout_marginTop="30dp"
+        android:id="@+id/fnamev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="First Name"
+        android:layout_marginLeft="100dp" />
+    <EditText
+        android:id="@+id/fname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/lnamev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Last Name"
+        android:layout_marginLeft="100dp" />
+    <EditText
+        android:id="@+id/lname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:ems="10" />
+
+
+    <TextView
         android:id="@+id/emailv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,6 +66,8 @@
         android:layout_gravity="center"
         android:inputType="textPassword"
         android:ems="10" />
+
+
 
     <Button android:id="@+id/coach_register"
         android:layout_width="wrap_content"

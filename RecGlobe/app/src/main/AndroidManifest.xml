@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".AthleteSetProfileActivity"></activity>
+        <activity android:name=".CoachSetProfileActivity"></activity>
         <activity android:name=".AtheleteRegistrationActivity" />
         <activity android:name=".AtheleteLoginActivity" />
         <activity android:name=".CoachLoginActivity" />

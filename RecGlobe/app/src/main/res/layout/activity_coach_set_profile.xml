@@ -107,9 +107,12 @@
             android:ems="13"/>
 
         <ImageView
-            android:id="@+id/imgView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_marginLeft="65dp"
+            android:layout_width="100sp"
+            android:layout_height="100sp"
+            android:id="@+id/profileImage"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginBottom="20sp" />
 
         <Button
             android:id="@+id/btnChoose"
