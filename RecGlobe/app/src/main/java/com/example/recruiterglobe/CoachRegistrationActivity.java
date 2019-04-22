@@ -61,7 +61,10 @@ public class CoachRegistrationActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (!task.isSuccessful()){
                             Toast.makeText(CoachRegistrationActivity.this, "Sign up error", Toast.LENGTH_SHORT).show();
-                        }
+                        }else{
+                                Intent intent = new Intent(CoachRegistrationActivity.this, CoachSetProfileActivity.class);
+                                startActivity(intent);
+                            }
                     }
                 });
 

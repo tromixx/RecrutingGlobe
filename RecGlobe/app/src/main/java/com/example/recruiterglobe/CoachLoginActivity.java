@@ -38,7 +38,7 @@ public class CoachLoginActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if(user != null){
-                    Intent intent = new Intent(CoachLoginActivity.this, MainActivity.class);
+                    Intent intent = new Intent(CoachLoginActivity.this, CoachSetProfileActivity.class);
                     startActivity(intent);
                     finish();
                     return;
