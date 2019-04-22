@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/loginscrn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:text="Set Your Profile"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/fnamev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="65dp"
+            android:layout_marginTop="20dp"
+            android:text="First Name"/>
+        <EditText
+            android:id="@+id/fname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ems="13"/>
+
+        <TextView
+            android:id="@+id/lnamev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="65dp"
+            android:layout_marginTop="20dp"
+            android:text="Last Name"/>
+        <EditText
+            android:id="@+id/lname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ems="13"/>
+
+        <TextView
+            android:id="@+id/biov"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="65dp"
+            android:layout_marginTop="20dp"
+            android:text="Bio"/>
+        <EditText
+            android:id="@+id/bio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ems="13"
+            android:lines="4"/>
+
+
+        <TextView
+            android:id="@+id/univ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="65dp"
+            android:layout_marginTop="20dp"
+            android:text="University"/>
+        <EditText
+            android:id="@+id/uni"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ems="13"/>
+
+        <TextView
+            android:id="@+id/uniLinkv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="65dp"
+            android:layout_marginTop="20dp"
+            android:text="University Link"/>
+        <EditText
+            android:id="@+id/uniLink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ems="13"/>
+
+
+        <TextView
+            android:id="@+id/phonev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="65dp"
+            android:layout_marginTop="20dp"
+            android:text="Phone Number"/>
+        <EditText
+            android:id="@+id/phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:inputType="phone"
+            android:digits="0123456789+"
+            android:ems="13"/>
+
+        <ImageView
+            android:id="@+id/imgView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/btnChoose"
+            android:text="Choose Profile Picture"
+            android:layout_marginLeft="65dp"
+            android:ems="13"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            style="@style/Widget.AppCompat.Button.Colored"/>
+
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Save"
+            style="@style/Widget.AppCompat.Button.Borderless"/>
+
+    </LinearLayout>
+</ScrollView>
+

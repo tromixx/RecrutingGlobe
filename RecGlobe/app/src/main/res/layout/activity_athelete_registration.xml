@@ -7,25 +7,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
-        android:text="Login"
+        android:text="Sign up with your google account"
         android:textSize="25dp"
         android:textStyle="bold"
         android:layout_gravity="center"/>
+
+
     <TextView
-        android:id="@+id/fstTxt"
+        android:layout_marginTop="30dp"
+        android:id="@+id/emailv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="20dp"
-        android:text="Email"/>
+        android:text="Email"
+        android:layout_marginLeft="100dp" />
     <EditText
         android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:ems="10"/>
+        android:ems="10" />
+
     <TextView
-        android:id="@+id/secTxt"
+        android:id="@+id/passwordv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Password"
@@ -37,19 +40,24 @@
         android:layout_gravity="center"
         android:inputType="textPassword"
         android:ems="10" />
-    <Button
-        android:id="@+id/coach_login"
+
+
+
+    <Button android:id="@+id/athlete_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Register"
         android:layout_gravity="center"
-        android:text="Login"
         style="@style/Widget.AppCompat.Button.Borderless"/>
-    <TextView android:id="@+id/lnkRegister"
+
+    <TextView android:id="@+id/lnkLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="New to RecruiterGlobe? Register here"
+        android:text="Already Registered? Login here"
         android:gravity="center"
         android:textSize="20dp"
-        android:textColor="#3F51B5"/>
+        android:textColor="#3F51B5"
+        android:onClick="test"/>
 </LinearLayout>
+

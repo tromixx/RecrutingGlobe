@@ -21,7 +21,7 @@ public class login_option_activity extends AppCompatActivity {
         mAthlete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(login_option_activity.this, MainActivity.class);
+                Intent intent = new Intent(login_option_activity.this, AtheleteLoginActivity.class);
                 startActivity(intent);
                 finish();
                 return;

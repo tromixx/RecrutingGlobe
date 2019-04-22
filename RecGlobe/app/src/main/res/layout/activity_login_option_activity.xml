@@ -6,16 +6,43 @@
     android:layout_height="match_parent"
     tools:context=".login_option_activity"
     android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Welcome to RecruiterGlobe!!"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_gravity="center"/>
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="65dp"
+        android:text="Login/Register as "
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_gravity="center"/>
     
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="45dp"
         android:text="Athlete"
-        android:id="@+id/athlete"/>
+        android:id="@+id/athlete"
+        android:ems="16"
+        style="@style/Widget.AppCompat.Button.Borderless"/>
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="2dp"
         android:text="Coach"
-        android:id="@+id/coach"/>
+        android:id="@+id/coach"
+        android:ems="16"
+        style="@style/Widget.AppCompat.Button.Borderless"/>
 </LinearLayout>

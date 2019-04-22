@@ -38,11 +38,11 @@
         android:inputType="textPassword"
         android:ems="10" />
     <Button
-        android:id="@+id/coach_login"
+        android:id="@+id/athlete_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:text="Login"
+        android:layout_gravity="center"
         style="@style/Widget.AppCompat.Button.Borderless"/>
     <TextView android:id="@+id/lnkRegister"
         android:layout_width="match_parent"
