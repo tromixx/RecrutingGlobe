@@ -63,6 +63,10 @@ public class AtheleteLoginActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(!task.isSuccessful()){
                                 Toast.makeText(AtheleteLoginActivity.this, "Login Error", Toast.LENGTH_SHORT).show();
+                            }else{
+                                Intent intent = new Intent(AtheleteLoginActivity.this, MainActivity.class);
+                                startActivity(intent);
+                                finish();
                             }
                         }
 
