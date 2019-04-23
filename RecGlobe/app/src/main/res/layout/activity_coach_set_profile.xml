@@ -17,33 +17,6 @@
             android:textStyle="bold"
             android:layout_gravity="center"/>
 
-        <TextView
-            android:id="@+id/fnamev"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="65dp"
-            android:layout_marginTop="20dp"
-            android:text="First Name"/>
-        <EditText
-            android:id="@+id/fname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:ems="13"/>
-
-        <TextView
-            android:id="@+id/lnamev"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="65dp"
-            android:layout_marginTop="20dp"
-            android:text="Last Name"/>
-        <EditText
-            android:id="@+id/lname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:ems="13"/>
 
         <TextView
             android:id="@+id/biov"
@@ -106,23 +79,20 @@
             android:digits="0123456789+"
             android:ems="13"/>
 
+        <TextView
+            android:id="@+id/addImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Picture"
+            android:layout_marginLeft="65dp" />
+
         <ImageView
             android:layout_marginLeft="65dp"
             android:layout_width="100sp"
             android:layout_height="100sp"
             android:id="@+id/profileImage"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/add"
             android:layout_marginBottom="20sp" />
-
-        <Button
-            android:id="@+id/btnChoose"
-            android:text="Choose Profile Picture"
-            android:layout_marginLeft="65dp"
-            android:ems="13"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            style="@style/Widget.AppCompat.Button.Colored"/>
-
 
         <Button
             android:id="@+id/save"

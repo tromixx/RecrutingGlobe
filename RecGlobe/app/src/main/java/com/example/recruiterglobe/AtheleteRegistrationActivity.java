@@ -71,7 +71,7 @@ public class AtheleteRegistrationActivity extends AppCompatActivity {
                             Toast.makeText(AtheleteRegistrationActivity.this, "Sign up error", Toast.LENGTH_SHORT).show();
                         }else{
                             String cId = mAuth.getCurrentUser().getUid();
-                            DatabaseReference coachDB = FirebaseDatabase.getInstance().getReference().child("coach").child(cId);
+                            DatabaseReference coachDB = FirebaseDatabase.getInstance().getReference().child("Athlete").child(cId);
                             coachDB.child("fName").setValue(fname);
                             coachDB.child("lName").setValue(lname);
                             Intent intent = new Intent(AtheleteRegistrationActivity.this, AthleteSetProfileActivity.class);
