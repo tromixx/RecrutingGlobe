@@ -77,7 +77,7 @@ public class AthleteProfileActivity extends AppCompatActivity {
         name              = findViewById(R.id.name);
         fname             = findViewById(R.id.fname);
         lname             = findViewById(R.id.lname);
-
+        bio             = findViewById(R.id.bio);
         UTR               = findViewById(R.id.utr);
         award             = findViewById(R.id.award);
         city              = findViewById(R.id.city);
@@ -108,18 +108,18 @@ public class AthleteProfileActivity extends AppCompatActivity {
 
                 name.setText(athlete.fName + " " + athlete.lName);
                 bio.setText(athlete.bio);
-                //fname.setText(athlete.fName);
-                //lname.setText(athlete.lName);
+                fname.setText(athlete.fName);
+                lname.setText(athlete.lName);
 
-                //UTR.setText(athlete.UTR);
-                //award.setText(athlete.award);
-                //city.setText(athlete.city);
-                //country.setText(athlete.country);
-                //link.setText(athlete.link);
-                //nationalRanking.setText(athlete.nationalRanking);
-                //phoneNumber.setText(athlete.phoneNumber);
-                //state.setText(athlete.state);
-                //team.setText(athlete.team);
+                UTR.setText(athlete.UTR);
+                award.setText(athlete.award);
+                city.setText(athlete.city);
+                country.setText(athlete.country);
+                link.setText(athlete.link);
+                nationalRanking.setText(athlete.nationalRanking);
+                phoneNumber.setText(athlete.phoneNumber);
+                state.setText(athlete.state);
+                team.setText(athlete.team);
 
 
             }

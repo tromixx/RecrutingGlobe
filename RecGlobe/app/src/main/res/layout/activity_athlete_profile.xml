@@ -6,8 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".AthleteProfileActivity">
 
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
-    <!--<ImageView
+        <!--<ImageView
         android:id="@+id/athlete_profile_pic"
         android:layout_width="200dp"
         android:layout_height="200dp"
@@ -23,301 +33,303 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars[11]" />-->
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/athlete_profile_pic"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:src ="@drawable/googleg_standard_color_18"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:civ_border_width="2dp"
-        app:civ_border_color="#388577"/>
-
-
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:gravity="center"
-        android:text="temp1"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/athlete_profile_pic" />
-
-    <TextView
-        android:id="@+id/bio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:gravity="center"
-        android:text="temp2"
-        android:textSize="18sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
-
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="325dp"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/bio"
-        tools:layout_editor_absoluteX="0dp">
-
-        <TextView
-            android:id="@+id/fnamelabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="3dp"
-            android:text="First Name"
-            android:textStyle="bold"
-            android:layout_marginStart="50dp" />
-
-        <TextView
-            android:id="@+id/fname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/athlete_profile_pic"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_gravity="center"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="5dp"
-            android:ems="10"
-            android:text="temp" />
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/googleg_standard_color_18"
+            app:civ_border_color="#388577"
+            app:civ_border_width="2dp" />
+
 
         <TextView
-            android:id="@+id/lnamelabel"
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginBottom="3dp"
-            android:text="Last Name"
-            android:textStyle="bold"
-            android:layout_marginStart="50dp" />
-
-        <TextView
-            android:id="@+id/lname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="5dp"
+            android:layout_centerHorizontal="true"
             android:layout_gravity="center"
-            android:ems="10"
-            android:text="temp"/>
-
-
-        <TextView
-            android:id="@+id/phonelabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginBottom="3dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:gravity="center"
+            android:text="temp1"
+            android:textSize="22sp"
             android:textStyle="bold"
-            android:text="Phone Number"
-            android:layout_marginStart="50dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/athlete_profile_pic" />
 
         <TextView
-            android:id="@+id/phone"
+            android:id="@+id/bio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:layout_gravity="center"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="5dp"
-            android:ems="10"
-            android:text="temp"/>
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:gravity="center"
+            android:text="temp2"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name" />
+
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="false">
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/bio"
+                tools:layout_editor_absoluteX="0dp">
+
+                <TextView
+                    android:id="@+id/fnamelabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="First Name"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/fname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginBottom="5dp"
+                    android:ems="10"
+                    android:text="temp" />
+
+                <TextView
+                    android:id="@+id/lnamelabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="Last Name"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/lname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginBottom="5dp"
+                    android:ems="10"
+                    android:text="temp" />
 
 
-        <TextView
-            android:id="@+id/citylabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginBottom="3dp"
-            android:textStyle="bold"
-            android:text="City"
-            android:layout_marginStart="50dp" />
+                <TextView
+                    android:id="@+id/phonelabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="Phone Number"
+                    android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/city"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="5dp"
-            android:ems="10"
-            android:text="temp"/>
-
-        <TextView
-            android:id="@+id/statelabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginBottom="3dp"
-            android:textStyle="bold"
-            android:text="State"
-            android:layout_marginStart="50dp" />
-
-        <TextView
-            android:id="@+id/state"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="5dp"
-            android:ems="10"
-            android:text="temp"/>
-
-        <TextView
-            android:id="@+id/countrylabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginBottom="3dp"
-            android:textStyle="bold"
-            android:text="Country"
-            android:layout_marginStart="50dp" />
-
-        <TextView
-            android:id="@+id/country"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="5dp"
-            android:ems="10"
-            android:text="temp"/>
-
-        <TextView
-            android:id="@+id/teamlabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginBottom="3dp"
-            android:textStyle="bold"
-            android:text="Team"
-            android:layout_marginStart="50dp" />
-
-        <TextView
-            android:id="@+id/team"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="5dp"
-            android:ems="10"
-            android:text="temp"/>
-
-        <TextView
-            android:id="@+id/utrlabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginBottom="3dp"
-            android:textStyle="bold"
-            android:text="UTR"
-            android:layout_marginStart="50dp" />
-
-        <TextView
-            android:id="@+id/utr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="5dp"
-            android:ems="10"
-            android:text="temp"/>
+                <TextView
+                    android:id="@+id/phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginBottom="5dp"
+                    android:ems="10"
+                    android:text="temp" />
 
 
-        <TextView
-            android:id="@+id/natranklabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginBottom="3dp"
-            android:textStyle="bold"
-            android:text="National Ranking"
-            android:layout_marginStart="50dp" />
+                <TextView
+                    android:id="@+id/citylabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="City"
+                    android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/natrank"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="5dp"
-            android:ems="10"
-            android:text="temp"/>
+                <TextView
+                    android:id="@+id/city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginBottom="5dp"
+                    android:ems="10"
+                    android:text="temp" />
+
+                <TextView
+                    android:id="@+id/statelabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="State"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginBottom="5dp"
+                    android:ems="10"
+                    android:text="temp" />
+
+                <TextView
+                    android:id="@+id/countrylabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="Country"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/country"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginBottom="5dp"
+                    android:ems="10"
+                    android:text="temp" />
+
+                <TextView
+                    android:id="@+id/teamlabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="Team"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/team"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginBottom="5dp"
+                    android:ems="10"
+                    android:text="temp" />
+
+                <TextView
+                    android:id="@+id/utrlabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="UTR"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/utr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginBottom="5dp"
+                    android:ems="10"
+                    android:text="temp" />
 
 
-        <TextView
-            android:id="@+id/awardlabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginBottom="3dp"
-            android:textStyle="bold"
-            android:text="Award"
-            android:layout_marginStart="50dp" />
+                <TextView
+                    android:id="@+id/natranklabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="National Ranking"
+                    android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/award"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="5dp"
-            android:ems="10"
-            android:text="temp"/>
-
-        <TextView
-            android:id="@+id/linklabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginBottom="3dp"
-            android:textStyle="bold"
-            android:text="Award"
-            android:layout_marginStart="50dp" />
-
-        <TextView
-            android:id="@+id/link"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="5dp"
-            android:ems="10"
-            android:text="temp"/>
+                <TextView
+                    android:id="@+id/natrank"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginBottom="5dp"
+                    android:ems="10"
+                    android:text="temp" />
 
 
+                <TextView
+                    android:id="@+id/awardlabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="Award"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/award"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginBottom="5dp"
+                    android:ems="10"
+                    android:text="temp" />
+
+                <TextView
+                    android:id="@+id/linklabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="Award"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/link"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginBottom="5dp"
+                    android:ems="10"
+                    android:text="temp" />
+
+
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
-    </ScrollView>
+
 
 
 </android.support.constraint.ConstraintLayout>
