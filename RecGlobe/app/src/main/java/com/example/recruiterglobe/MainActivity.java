@@ -40,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
     private arrayAdapter arrayAdapter;
     private int i;
     private Button mProfile;
-    private Button message;
+    //private Button message;
+    public ImageView image;
+
 
     private FirebaseAuth mAuth;
     private String currentUId;
@@ -83,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mProfile = findViewById(R.id.profile);
         AthleteDb = FirebaseDatabase.getInstance().getReference().child("Athlete");
         mAuth = FirebaseAuth.getInstance();
         currentUId = mAuth.getCurrentUser().getUid();
@@ -102,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+/*
         message = findViewById(R.id.message);
 
         message.setOnClickListener(new View.OnClickListener() {
@@ -114,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
         });
+*/
 
         rowItems= new ArrayList<cards>();
         arrayAdapter = new arrayAdapter(this, R.layout.item, rowItems);
@@ -135,12 +137,18 @@ public class MainActivity extends AppCompatActivity {
                 //Do something on the left!
                 //You also have access to the original object.
                 //If you want to use it just cast it (String) dataObject
+                cards obj = (cards) dataObject;
+                String userId = obj.getUserId();
+                AthleteDb.child(userId).child("connection").child("nope").child(currentUId).setValue(true);
                 Toast.makeText(MainActivity.this, "left", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onRightCardExit(Object dataObject) {
-                Toast.makeText(MainActivity.this, "right", Toast.LENGTH_SHORT).show();
+                cards obj = (cards) dataObject;
+                String userId = obj.getUserId();
+                AthleteDb.child(userId).child("connection").child("yup").child(currentUId).setValue(true);
+                Toast.makeText(SecondMainActivity.this, "right", Toast.LENGTH_SHORT).show();
             }
 
             @Override
