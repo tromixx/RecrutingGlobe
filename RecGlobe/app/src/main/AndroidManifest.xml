@@ -6,11 +6,13 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:noHistory="false"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AthleteSetProfileActivity"></activity>
-        <activity android:name=".CoachSetProfileActivity"></activity>
+        <activity android:name=".CoachProfileActivity"></activity>
+        <activity android:name=".AthleteSetProfileActivity" />
+        <activity android:name=".CoachSetProfileActivity" />
         <activity android:name=".AtheleteRegistrationActivity" />
         <activity android:name=".AtheleteLoginActivity" />
         <activity android:name=".CoachLoginActivity" />
