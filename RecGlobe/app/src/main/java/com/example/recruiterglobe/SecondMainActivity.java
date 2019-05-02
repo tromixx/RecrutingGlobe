@@ -88,11 +88,17 @@ public class SecondMainActivity extends AppCompatActivity {
                 //Do something on the left!
                 //You also have access to the original object.
                 //If you want to use it just cast it (String) dataObject
+                cards2 obj = (cards2) dataObject;
+                String userId = obj.getUserId();
+                coachDb.child(userId).child("connection").child("nope").child(currentUId).setValue(true);
                 Toast.makeText(SecondMainActivity.this, "left", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onRightCardExit(Object dataObject) {
+                cards2 obj = (cards2) dataObject;
+                String userId = obj.getUserId();
+                coachDb.child(userId).child("connection").child("yup").child(currentUId).setValue(true);
                 Toast.makeText(SecondMainActivity.this, "right", Toast.LENGTH_SHORT).show();
             }
 
@@ -119,7 +125,7 @@ public class SecondMainActivity extends AppCompatActivity {
         coachDB.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                if (dataSnapshot.exists()) {
+                if (dataSnapshot.exists() && !dataSnapshot.child("connection").child("nope").hasChild(currentUId) && !dataSnapshot.child("connection").child("yup").hasChild(currentUId) ) {
                     cards2 Item2 = new cards2(dataSnapshot.getKey(), dataSnapshot.child("fName").getValue().toString());
                     rowItems.add(Item2);
                     arrayAdapter.notifyDataSetChanged();
