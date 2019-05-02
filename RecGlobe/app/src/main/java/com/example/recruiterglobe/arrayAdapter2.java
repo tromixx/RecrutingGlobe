@@ -34,6 +34,10 @@ public class arrayAdapter2 extends ArrayAdapter<cards2> {
 
         Picasso.with(getContext()).load(card_item.getProfileImageUrl()).into(image);
 
+        System.out.println("Profile!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
+        System.out.println(card_item.getProfileImageUrl());
+
         return convertView;
     }
 }
