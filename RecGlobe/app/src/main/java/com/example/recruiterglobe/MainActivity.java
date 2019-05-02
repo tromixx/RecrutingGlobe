@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.recruiterglobe.Chat.ChatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter<String> arrayAdapter;
     private int i;
     private Button mProfile;
+    private Button message;
 
 
 
@@ -63,7 +65,20 @@ public class MainActivity extends AppCompatActivity {
         mProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, AthleteProfileActivity.class);
+                Intent intent = new Intent(MainActivity.this, CoachProfileActivity.class);
+                startActivity(intent);
+                finish();
+                return;
+            }
+        });
+
+
+        message = findViewById(R.id.message);
+
+        message.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ChatActivity.class);
                 startActivity(intent);
                 finish();
                 return;

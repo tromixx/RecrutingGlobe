@@ -38,7 +38,7 @@ public class CoachLoginActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if(user != null){
-                    Intent intent = new Intent(CoachLoginActivity.this, CoachSetProfileActivity.class);
+                    Intent intent = new Intent(CoachLoginActivity.this, CoachProfileActivity.class);
                     startActivity(intent);
                     finish();
                     return;
@@ -62,7 +62,7 @@ public class CoachLoginActivity extends AppCompatActivity {
                             if(!task.isSuccessful()){
                                 Toast.makeText(CoachLoginActivity.this, "Login Error", Toast.LENGTH_SHORT).show();
                             }else{
-                                Intent intent = new Intent(CoachLoginActivity.this, CoachSetProfileActivity.class);
+                                Intent intent = new Intent(CoachLoginActivity.this, MainActivity.class);
                                 startActivity(intent);
                                 finish();
                             }
