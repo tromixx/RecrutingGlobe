@@ -4,7 +4,7 @@ package com.example.recruiterglobe.Chat;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.v7.app.AlertController;
+import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,7 +28,7 @@ public class ChatAdapter {
     public ChatViewHolders onCreateViewHolder(ViewGroup parent, int viewType){
 
         View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_chat, root: null, attachToRoot: false);
-        RecyclertView.LayoutParams lp = new RecyclerView,LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        RecyclerView.LayoutParams lp = new RecyclerView,LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutView.setLayoutParams(lp);
         ChatViewHolders rcv = new ChatViewHolders(layoutView);
 

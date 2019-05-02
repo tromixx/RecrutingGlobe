@@ -1,17 +1,20 @@
 //I NEED TO COPY MATCHES: VIEWHOLDER, OBJECT, ADAPTER
 package com.example.recruiterglobe.Chat;
 
+import android.support.v7.widget.RecyclerView;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.support.v7.widget.RecyclerView;
 
 import com.example.recruiterglobe.R;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -28,6 +31,7 @@ public class ChatActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mChatAdaper;
     private RecyclerView.LayoutManager mMatcheLayoutManager;
+
 
     private EditText mSendEditText;
 
@@ -50,7 +54,7 @@ public class ChatActivity extends AppCompatActivity {
 
         getChatId();
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
         mRecyclerView.setNestedScrollingEnable(false);
         mRecyclerView.setHasFixedSize(false);
         mMatcheLayoutManager = new LinearLayoutManager(context: ChatActivity.this);
