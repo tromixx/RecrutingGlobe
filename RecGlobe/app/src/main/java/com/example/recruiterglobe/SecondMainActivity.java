@@ -1,5 +1,6 @@
 package com.example.recruiterglobe;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.FileObserver;
 import android.print.PrinterId;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -21,6 +23,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
+
+import com.squareup.picasso.Picasso;
+
 
 import java.security.PrivateKey;
 import java.util.ArrayList;
@@ -38,6 +43,8 @@ public class SecondMainActivity extends AppCompatActivity {
     private String currentUId;
 
     private DatabaseReference coachDb;
+
+    public ImageView image;
 
     ListView listView;
     List<cards2> rowItems;
@@ -128,6 +135,13 @@ public class SecondMainActivity extends AppCompatActivity {
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 if (dataSnapshot.exists() && !dataSnapshot.child("connection").child("nope").hasChild(currentUId) && !dataSnapshot.child("connection").child("yup").hasChild(currentUId) ) {
                     cards2 Item2 = new cards2(dataSnapshot.getKey(), dataSnapshot.child("fName").getValue().toString());
+
+                    String pic = dataSnapshot.child("pic").getValue().toString();
+
+
+
+                    Context context = getApplicationContext();
+                    Picasso.with(context).load(pic).into(image);
 
                     rowItems.add(Item2);
                     arrayAdapter.notifyDataSetChanged();
