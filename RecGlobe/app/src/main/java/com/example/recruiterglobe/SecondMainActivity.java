@@ -128,6 +128,7 @@ public class SecondMainActivity extends AppCompatActivity {
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 if (dataSnapshot.exists() && !dataSnapshot.child("connection").child("nope").hasChild(currentUId) && !dataSnapshot.child("connection").child("yup").hasChild(currentUId) ) {
                     cards2 Item2 = new cards2(dataSnapshot.getKey(), dataSnapshot.child("fName").getValue().toString());
+
                     rowItems.add(Item2);
                     arrayAdapter.notifyDataSetChanged();
                 }
