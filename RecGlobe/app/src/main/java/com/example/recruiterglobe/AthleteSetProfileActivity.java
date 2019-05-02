@@ -30,7 +30,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AthleteSetProfileActivity extends AppCompatActivity {
+public class  AthleteSetProfileActivity extends AppCompatActivity {
 
     private Button mSave;
 

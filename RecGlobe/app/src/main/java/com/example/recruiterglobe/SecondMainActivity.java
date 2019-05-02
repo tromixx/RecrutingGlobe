@@ -1,8 +1,13 @@
 package com.example.recruiterglobe;
 
+import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
+import android.os.FileObserver;
+import android.print.PrinterId;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -10,13 +15,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import com.example.recruiterglobe.Chat.ChatActivity;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
@@ -26,36 +27,18 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
-
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import com.squareup.picasso.Picasso;
 
 
+import java.security.PrivateKey;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
-
-    private cards cards_data[];
-    private arrayAdapter arrayAdapter;
-    private int i;
-    private Button mProfile;
-    //private Button message;
-    public ImageView image;
-
-
-    private FirebaseAuth mAuth;
-    private String currentUId;
-
-    private DatabaseReference AthleteDb;
-
-    ListView listView;
-    List<cards> rowItems;
-
+public class SecondMainActivity extends AppCompatActivity {
 
     private void logout() {
         FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(MainActivity.this, login_option_activity.class);
+        Intent intent = new Intent(SecondMainActivity.this, login_option_activity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
@@ -80,47 +63,54 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+    private cards2 cards_data[];
+    private arrayAdapter2 arrayAdapter;
+    private int i;
+    private Button mProfile;
+
+    private FirebaseAuth mAuth;
+
+    private String currentUId;
+
+    private DatabaseReference coachDb;
+
+    public ImageView image;
+
+    ListView listView;
+    List<cards2> rowItems;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_second_main);
 
-        AthleteDb = FirebaseDatabase.getInstance().getReference().child("Athlete");
+        coachDb = FirebaseDatabase.getInstance().getReference().child("coach");
         mAuth = FirebaseAuth.getInstance();
         currentUId = mAuth.getCurrentUser().getUid();
 
-        getAthleteUser();
+        getCoachUser();
 
         mProfile = (Button) findViewById(R.id.profile);
 
         mProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CoachProfileActivity.class);
+                Intent intent = new Intent(SecondMainActivity.this, AthleteProfileActivity.class);
                 startActivity(intent);
                 finish();
                 return;
             }
         });
 
-/*
-        message = findViewById(R.id.message);
 
-        message.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ChatActivity.class);
-                startActivity(intent);
-                finish();
-                return;
-            }
-        });
-*/
+        rowItems = new ArrayList<cards2>();
+        arrayAdapter = new arrayAdapter2(this, R.layout.item2, rowItems);
 
-        rowItems= new ArrayList<cards>();
-        arrayAdapter = new arrayAdapter(this, R.layout.item, rowItems);
+
 
         SwipeFlingAdapterView flingContainer = (SwipeFlingAdapterView) findViewById(R.id.frame);
+
 
         flingContainer.setAdapter(arrayAdapter);
         flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
@@ -137,23 +127,22 @@ public class MainActivity extends AppCompatActivity {
                 //Do something on the left!
                 //You also have access to the original object.
                 //If you want to use it just cast it (String) dataObject
-                cards obj = (cards) dataObject;
+                cards2 obj = (cards2) dataObject;
                 String userId = obj.getUserId();
-                AthleteDb.child(userId).child("connection").child("nope").child(currentUId).setValue(true);
-                Toast.makeText(MainActivity.this, "left", Toast.LENGTH_SHORT).show();
+                coachDb.child(userId).child("connection").child("nope").child(currentUId).setValue(true);
+                Toast.makeText(SecondMainActivity.this, "left", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onRightCardExit(Object dataObject) {
-                cards obj = (cards) dataObject;
+                cards2 obj = (cards2) dataObject;
                 String userId = obj.getUserId();
-                AthleteDb.child(userId).child("connection").child("yup").child(currentUId).setValue(true);
+                coachDb.child(userId).child("connection").child("yup").child(currentUId).setValue(true);
                 Toast.makeText(SecondMainActivity.this, "right", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onAdapterAboutToEmpty(int itemsInAdapter) {
-
             }
 
             @Override
@@ -161,30 +150,24 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
         // Optionally add an OnItemClickListener
         flingContainer.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
             @Override
             public void onItemClicked(int itemPosition, Object dataObject) {
-                Toast.makeText(MainActivity.this, "click", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SecondMainActivity.this, "click", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
-
     }
 
-    public void getAthleteUser() {
-        DatabaseReference AthleteDB = FirebaseDatabase.getInstance().getReference().child("Athlete");
-        AthleteDB.addChildEventListener(new ChildEventListener() {
+    public void getCoachUser() {
+        DatabaseReference coachDB = FirebaseDatabase.getInstance().getReference().child("coach");
+        coachDB.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                if (dataSnapshot.exists() && !dataSnapshot.child("connection").child("nope").hasChild(currentUId) &&
-                        !dataSnapshot.child("connection").child("yup").hasChild(currentUId) ) {
-                    cards Item = new cards(dataSnapshot.getKey(), dataSnapshot.child("fName").getValue().toString());
+                if (dataSnapshot.exists() && !dataSnapshot.child("connection").child("nope").hasChild(currentUId) && !dataSnapshot.child("connection").child("yup").hasChild(currentUId) ) {
+                    cards2 Item2 = new cards2(dataSnapshot.getKey(), dataSnapshot.child("fName").getValue().toString(), dataSnapshot.child("pic").getValue().toString(), dataSnapshot.child("bio").getValue().toString(), dataSnapshot.child("university").getValue().toString());
 
-                    rowItems.add(Item);
+                    rowItems.add(Item2);
                     arrayAdapter.notifyDataSetChanged();
                 }
             }
@@ -211,6 +194,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
 }
+
+
+
 

@@ -14,6 +14,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".CoachProfileActivity"></activity>
         <activity android:name=".Chat.ChatActivity"></activity>
+        <activity android:name=".SecondMainActivity"></activity>
         <activity android:name=".AthleteSetProfileActivity" />
         <activity android:name=".CoachSetProfileActivity" />
         <activity android:name=".AtheleteRegistrationActivity" />

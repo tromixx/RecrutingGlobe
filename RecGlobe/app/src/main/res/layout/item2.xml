@@ -57,24 +57,24 @@
 
 
             <TextView
-                android:id="@+id/utrlabel"
-                android:layout_width="75dp"
+                android:id="@+id/unilabel"
+                android:layout_width="142dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="0dp"
                 android:layout_marginLeft="0dp"
-                android:layout_marginBottom="153dp"
+                android:layout_marginBottom="151dp"
                 android:paddingLeft="20sp"
                 android:paddingRight="0dp"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:text="UTR:" />
+                android:text="University:" />
 
             <TextView
-                android:id="@+id/utr"
+                android:id="@+id/university"
                 android:layout_width="207dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -82,47 +82,16 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="83dp"
-                android:layout_marginLeft="83dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="153dp"
-                android:paddingLeft="20sp"
-                android:textColor="@android:color/black"
-                android:textSize="17sp"
-                android:text="UTR" />
-
-            <TextView
-                android:id="@+id/natranklabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentBottom="true"
                 android:layout_marginStart="0dp"
                 android:layout_marginLeft="0dp"
-                android:layout_marginBottom="123dp"
-                android:paddingLeft="20sp"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:text="National Ranking:" />
-
-
-            <TextView
-                android:id="@+id/natrank"
-                android:layout_width="125dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="170dp"
-                android:layout_marginLeft="170dp"
-                android:layout_marginBottom="122dp"
+                android:layout_marginEnd="93dp"
+                android:layout_marginRight="93dp"
+                android:layout_marginBottom="124dp"
                 android:paddingLeft="20sp"
                 android:textColor="@android:color/black"
                 android:textSize="17sp"
-                android:text="natrank" />
+                tools:text="University" />
+
 
             <TextView
                 android:id="@+id/biolabel"
@@ -149,7 +118,7 @@
                 android:paddingLeft="20sp"
                 android:textColor="@android:color/black"
                 android:textSize="17sp"
-                android:text="Bio" />
+                tools:text="Bio" />
 
 
         </RelativeLayout>

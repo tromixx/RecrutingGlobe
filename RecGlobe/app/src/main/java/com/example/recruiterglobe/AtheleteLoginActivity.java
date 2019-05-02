@@ -64,7 +64,7 @@ public class AtheleteLoginActivity extends AppCompatActivity {
                             if(!task.isSuccessful()){
                                 Toast.makeText(AtheleteLoginActivity.this, "Login Error", Toast.LENGTH_SHORT).show();
                             }else{
-                                Intent intent = new Intent(AtheleteLoginActivity.this, MainActivity.class);
+                                Intent intent = new Intent(AtheleteLoginActivity.this, SecondMainActivity.class);
                                 startActivity(intent);
                                 finish();
                             }
