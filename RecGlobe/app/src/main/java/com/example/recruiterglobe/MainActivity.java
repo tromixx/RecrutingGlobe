@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.recruiterglobe.Chat.ChatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
@@ -19,11 +20,19 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<String> al;
+    private cards cards_data[];
     private ArrayAdapter<String> arrayAdapter;
     private int i;
     private Button mProfile;
+    private Button message;
 
+    private FirebaseAuth mAuth;
+    private String currentUId;
+
+    private DatabaseReference AthleteDb;
+
+    ListView listView;
+    List<cards> rowItems;
 
 
     private void logout() {
@@ -59,11 +68,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mProfile = findViewById(R.id.profile);
+        AthleteDb = FirebaseDatabase.getInstance().getReference().child("Athlete");
+        mAuth = FirebaseAuth.getInstance();
+        currentUId = mAuth.getCurrentUser().getUid();
+
+        getAthleteUser();
+
+        mProfile = (Button) findViewById(R.id.profile);
 
         mProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, AthleteProfileActivity.class);
+                Intent intent = new Intent(MainActivity.this, CoachProfileActivity.class);
                 startActivity(intent);
                 finish();
                 return;
@@ -71,20 +87,22 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        al = new ArrayList<>();
-        al.add("php");
-        al.add("c");
-        al.add("python");
-        al.add("java");
-        boolean html = al.add("html");
-        al.add("c++");
-        al.add("css");
-        al.add("javascript");
+        message = findViewById(R.id.message);
 
-        arrayAdapter = new ArrayAdapter<>(this, R.layout.item, R.id.helloText, al);
+        message.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ChatActivity.class);
+                startActivity(intent);
+                finish();
+                return;
+            }
+        });
+
+        rowItems= new ArrayList<cards>();
+        arrayAdapter = new ArrayAdapter<>(this, R.layout.item, rowItems);
 
         SwipeFlingAdapterView flingContainer = (SwipeFlingAdapterView) findViewById(R.id.frame);
-
 
         flingContainer.setAdapter(arrayAdapter);
         flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
@@ -124,7 +142,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         // Optionally add an OnItemClickListener
         flingContainer.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
             @Override
@@ -138,9 +155,40 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void getAthleteUser() {
+        DatabaseReference AthleteDB = FirebaseDatabase.getInstance().getReference().child("Athlete");
+        AthleteDB.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                if (dataSnapshot.exists()) {
+                    cards2 Item2 = new cards2(dataSnapshot.getKey(), dataSnapshot.child("fName").getValue().toString());
+                    rowItems.add(Item2);
+                    arrayAdapter.notifyDataSetChanged();
+                }
+            }
 
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
+            }
 
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+    }
 
 }
 
