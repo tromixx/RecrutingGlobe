@@ -7,7 +7,10 @@
     tools:context=".Chat.ChatActivity">
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout-height="match-parent">
+        android:layout_height="match_parent"
+        >
+        //android:layout_above="@+id/sendLayout"
+        //android:layout_height=""
         <android.support.v7.widget.RecyclerViewe
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -17,6 +20,7 @@
         </android.support.v7.widget.RecyclerViewe>
     </android.support.v4.widget.NestedScrollView>
     <LinearLayout
+        android:id="@+id/sendLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

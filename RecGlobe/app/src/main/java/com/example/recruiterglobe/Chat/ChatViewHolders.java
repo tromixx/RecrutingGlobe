@@ -31,7 +31,7 @@ public class ChatViewHolders extends RecyclerView.ViewHolder implements View.OnC
         itemView.setOnClickListener(this);
 
         mMessage = itemView.findViewById(R.id.message);
-        mContainer = itemView.findViewById(R.id.message);
+        mContainer = itemView.findViewById(R.id.container);
     }
 
     @Override

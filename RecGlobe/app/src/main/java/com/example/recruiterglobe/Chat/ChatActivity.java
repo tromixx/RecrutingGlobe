@@ -2,6 +2,7 @@
 package com.example.recruiterglobe.Chat;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.EditText;
 import com.example.recruiterglobe.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -50,7 +52,7 @@ public class ChatActivity extends AppCompatActivity {
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mRecyclerView.setNestedScrollingEnable(false);
-        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setHasFixedSize(false);
         mMatcheLayoutManager = new LinearLayoutManager(context: ChatActivity.this);
         mRecyclerView.setLayoutManager(mMatcheLayoutManager);
         mChatAdaper = new ChatAdaper(getDataSetChat(), context: ChatActivity.this);
@@ -92,6 +94,7 @@ public class ChatActivity extends AppCompatActivity {
                 if (dataSnapshot.exists()){
                     chatId = dataSnapshot.getValue().toString();
                     mDatabaseChat = mDatabaseChat.child(chatId);
+                    getChatMessages();
                 }
             }
 
@@ -102,12 +105,51 @@ public class ChatActivity extends AppCompatActivity {
         });
     }
 
+    private void getChatMessages() {
+        mDatabaseChat.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                if (dataSnapshot.exists()){
+                    String message = null;
+                    String createdByUser = null;
+
+                    if(dataSnapshot.child("text").getValue()!=null){
+                        message = dataSnapshot.child("text").getValue().toString();
+                    }
+                    if(dataSnapshot.child("createByUser").getValue()!=null){
+                        createdByUser = dataSnapshot.child("createdByUser").getValue().toString();
+                    }
+
+                    if(message!=null && createdByUser!=null){
+                        Boolean currentUserBoolean = false;
+                        if(createdByUser.equals(currentUserID)){
+                            currentUserBoolean = true;
+                        }
+                        ChatObject newMessage = new ChatObject(message, currentUserBoolean);
+                        resultsChat.add(newMessage);
+                        mChatAdaper.notifyDataSetChanged();
+                    }
+                }
+            }
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+            }
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+            }
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
 
 
-
-
-    private ArrayList<ChatObject> resultsChats = new ArrayList<~>();
-    private List<ChatObject> getDataSetChat() { return resultsChats; }
+    private ArrayList<ChatObject> resultsChat = new ArrayList<~>();
+    private List<ChatObject> getDataSetChat() { return resultsChat; }
 }
 /*
 
