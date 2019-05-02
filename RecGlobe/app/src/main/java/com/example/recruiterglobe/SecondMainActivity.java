@@ -165,12 +165,7 @@ public class SecondMainActivity extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 if (dataSnapshot.exists() && !dataSnapshot.child("connection").child("nope").hasChild(currentUId) && !dataSnapshot.child("connection").child("yup").hasChild(currentUId) ) {
-                    cards2 Item2 = new cards2(dataSnapshot.getKey(), dataSnapshot.child("fName").getValue().toString(), dataSnapshot.child("pic").getValue().toString());
-
-                    String pic = dataSnapshot.child("pic").getValue().toString();
-
-                    Context context = getApplicationContext();
-                    Picasso.with(context).load(pic).into(image);
+                    cards2 Item2 = new cards2(dataSnapshot.getKey(), dataSnapshot.child("fName").getValue().toString(), dataSnapshot.child("pic").getValue().toString(), dataSnapshot.child("bio").getValue().toString(), dataSnapshot.child("university").getValue().toString());
 
                     rowItems.add(Item2);
                     arrayAdapter.notifyDataSetChanged();

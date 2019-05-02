@@ -27,9 +27,13 @@ public class arrayAdapter2 extends ArrayAdapter<cards2> {
         }
 
         TextView name = (TextView) convertView.findViewById(R.id.name);
+        TextView bio = (TextView) convertView.findViewById(R.id.bio);
+        TextView university = (TextView) convertView.findViewById(R.id.university);
         ImageView image = (ImageView) convertView.findViewById(R.id.image);
 
         name.setText(card_item.getName());
+        bio.setText(card_item.getBio());
+        university.setText(card_item.getUni());
 
 
         Picasso.with(getContext()).load(card_item.getProfileImageUrl()).into(image);
