@@ -3,9 +3,11 @@ package com.example.recruiterglobe;
 public class cards {
     private String userId;
     private String name;
-    public cards (String userId, String name){
+    private String profileImagUrl;
+    public cards (String userId, String name, String profileImagUrl){
         this.userId = userId;
         this.name = name;
+        this.profileImageUrl=profileImageUrl;
     }
 
     public String getUserId(){
@@ -21,5 +23,13 @@ public class cards {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getProfileImagUrl() {
+        return profileImagUrl;
+    }
+
+    public void setProfileImagUrl(String profileImagUrl) {
+        this.profileImagUrl = profileImagUrl;
     }
 }
