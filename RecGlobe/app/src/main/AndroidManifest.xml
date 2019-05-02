@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AthleteSetProfileActivity"></activity>
-        <activity android:name=".CoachSetProfileActivity"></activity>
+        <activity android:name=".SecondMainActivity"></activity>
+        <activity android:name=".AthleteSetProfileActivity" />
+        <activity android:name=".CoachSetProfileActivity" />
         <activity android:name=".AtheleteRegistrationActivity" />
         <activity android:name=".AtheleteLoginActivity" />
         <activity android:name=".CoachLoginActivity" />
