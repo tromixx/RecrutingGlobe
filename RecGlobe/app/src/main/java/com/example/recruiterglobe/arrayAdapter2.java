@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class arrayAdapter2 extends ArrayAdapter<cards2> {
@@ -28,7 +30,9 @@ public class arrayAdapter2 extends ArrayAdapter<cards2> {
         ImageView image = (ImageView) convertView.findViewById(R.id.image);
 
         name.setText(card_item.getName());
-        image.setImageResource(R.mipmap.ic_launcher);
+
+
+        Picasso.with(getContext()).load(card_item.getProfileImageUrl()).into(image);
 
         return convertView;
     }

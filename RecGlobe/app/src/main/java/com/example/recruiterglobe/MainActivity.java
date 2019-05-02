@@ -37,7 +37,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private cards cards_data[];
-    private ArrayAdapter<String> arrayAdapter;
+    private arrayAdapter arrayAdapter;
     private int i;
     private Button mProfile;
     private Button message;
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         rowItems= new ArrayList<cards>();
-        arrayAdapter = new ArrayAdapter<>(this, R.layout.item, rowItems);
+        arrayAdapter = new arrayAdapter(this, R.layout.item, rowItems);
 
         SwipeFlingAdapterView flingContainer = (SwipeFlingAdapterView) findViewById(R.id.frame);
 
@@ -145,11 +145,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onAdapterAboutToEmpty(int itemsInAdapter) {
-                // Ask for more data here
-                rowItems.add(Item);
-                arrayAdapter.notifyDataSetChanged();
-                Log.d("LIST", "notified");
-                i++;
+
             }
 
             @Override
