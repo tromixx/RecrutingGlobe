@@ -118,7 +118,7 @@ public class SecondMainActivity extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 if (dataSnapshot.exists()) {
-                    cards2 Item2 = new cards2(dataSnapshot.getKey(), dataSnapshot.child("fName").getValue().toString());
+                    cards2 Item2 = new cards2(dataSnapshot.getKey(), dataSnapshot.child("name").getValue().toString());
                     rowItems.add(Item2);
                     arrayAdapter.notifyDataSetChanged();
                 }
