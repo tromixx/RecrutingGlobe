@@ -110,43 +110,6 @@ public class SecondMainActivity extends AppCompatActivity {
                 Toast.makeText(SecondMainActivity.this, "click", Toast.LENGTH_SHORT).show();
             }
         });
-<<<<<<< HEAD
-=======
-    }
-
-    public void getCoachUser() {
-        DatabaseReference coachDB = FirebaseDatabase.getInstance().getReference().child("coach");
-        coachDB.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                if (dataSnapshot.exists()) {
-                    cards2 Item2 = new cards2(dataSnapshot.getKey(), dataSnapshot.child("fName").getValue().toString());
-                    rowItems.add(Item2);
-                    arrayAdapter.notifyDataSetChanged();
-                }
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
->>>>>>> parent of 9dff231... Revert "Update SecondMainActivity.java"
 
     }
 }
