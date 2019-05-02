@@ -169,8 +169,6 @@ public class SecondMainActivity extends AppCompatActivity {
 
                     String pic = dataSnapshot.child("pic").getValue().toString();
 
-
-
                     Context context = getApplicationContext();
                     Picasso.with(context).load(pic).into(image);
 
