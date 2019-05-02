@@ -1,5 +1,6 @@
 package com.example.recruiterglobe;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.FileObserver;
 import android.print.PrinterId;
@@ -8,9 +9,13 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -22,11 +27,42 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
+import com.squareup.picasso.Picasso;
+
+
 import java.security.PrivateKey;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SecondMainActivity extends AppCompatActivity {
+
+    private void logout() {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(SecondMainActivity.this, login_option_activity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.logout_button) {
+            logout();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
 
     private cards2 cards_data[];
     private arrayAdapter2 arrayAdapter;
@@ -38,6 +74,8 @@ public class SecondMainActivity extends AppCompatActivity {
     private String currentUId;
 
     private DatabaseReference coachDb;
+
+    public ImageView image;
 
     ListView listView;
     List<cards2> rowItems;
@@ -127,7 +165,7 @@ public class SecondMainActivity extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 if (dataSnapshot.exists() && !dataSnapshot.child("connection").child("nope").hasChild(currentUId) && !dataSnapshot.child("connection").child("yup").hasChild(currentUId) ) {
-                    cards2 Item2 = new cards2(dataSnapshot.getKey(), dataSnapshot.child("fName").getValue().toString());
+                    cards2 Item2 = new cards2(dataSnapshot.getKey(), dataSnapshot.child("fName").getValue().toString(), dataSnapshot.child("pic").getValue().toString(), dataSnapshot.child("bio").getValue().toString(), dataSnapshot.child("university").getValue().toString());
 
                     rowItems.add(Item2);
                     arrayAdapter.notifyDataSetChanged();
