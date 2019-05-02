@@ -2,20 +2,19 @@ package com.example.recruiterglobe.Chat;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.recruiterglobe.R;
 
 public class ChatViewHolders extends RecyclerView.ViewHolder implements View.OnClickListener{
     public TextView mMessage;
-    public LinearLayout mContainer;
+    //public LinearLayout mContainer;
     public ChatViewHolders(View itemView) {
         super(itemView);
         itemView.setOnClickListener(this);
 
         mMessage = itemView.findViewById(R.id.message);
-        mContainer = itemView.findViewById(R.id.container);
+        //mContainer = itemView.findViewById(R.id.gone);
     }
 
     @Override
