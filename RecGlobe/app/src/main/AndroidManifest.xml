@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.recruiterglobe">
 
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".CoachProfileActivity"></activity>
+        <activity android:name=".Chat.ChatActivity"></activity>
         <activity android:name=".AthleteSetProfileActivity" />
         <activity android:name=".CoachSetProfileActivity" />
         <activity android:name=".AtheleteRegistrationActivity" />
