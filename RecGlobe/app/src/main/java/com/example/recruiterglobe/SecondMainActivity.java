@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.recruiterglobe.Chat.ChatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -67,7 +68,7 @@ public class SecondMainActivity extends AppCompatActivity {
     private cards2 cards_data[];
     private arrayAdapter2 arrayAdapter;
     private int i;
-    private Button mProfile;
+    private Button mProfile, mChat;
 
     private FirebaseAuth mAuth;
 
@@ -92,11 +93,23 @@ public class SecondMainActivity extends AppCompatActivity {
         getCoachUser();
 
         mProfile = (Button) findViewById(R.id.profile);
+        mChat = (Button) findViewById(R.id.message);
+
 
         mProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SecondMainActivity.this, AthleteProfileActivity.class);
+                startActivity(intent);
+                finish();
+                return;
+            }
+        });
+
+        mChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SecondMainActivity.this, ChatActivity.class);
                 startActivity(intent);
                 finish();
                 return;
