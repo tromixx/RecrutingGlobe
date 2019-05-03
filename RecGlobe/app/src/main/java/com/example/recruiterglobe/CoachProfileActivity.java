@@ -97,20 +97,20 @@ public class CoachProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coach_profile);
 
-        profilePic        = findViewById(R.id.athlete_profile_pic);
+        profilePic        = findViewById(R.id.coach_profile_pic);
         name              = findViewById(R.id.name);
         fname             = findViewById(R.id.fname);
         lname             = findViewById(R.id.lname);
         bio               = findViewById(R.id.bio);
         link              = findViewById(R.id.link);
         phoneNumber       = findViewById(R.id.phone);
-        university        = findViewById(R.id.phone);
+        university        = findViewById(R.id.university);
 
 
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
         final String athleteId = currentUser.getUid();
-        coachdb = FirebaseDatabase.getInstance().getReference().child("Athlete").child(athleteId);
+        coachdb = FirebaseDatabase.getInstance().getReference().child("Coach").child(athleteId);
 
         coachdb.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -118,6 +118,7 @@ public class CoachProfileActivity extends AppCompatActivity {
                 Coach coach = snapshot.getValue(Coach.class);
 
                 Context context = getApplicationContext();
+                System.out.println(snapshot.getValue());
                 Picasso.with(context).load(coach.pic).into(profilePic);
 
                 name.setText(coach.fName + " " + coach.lName);

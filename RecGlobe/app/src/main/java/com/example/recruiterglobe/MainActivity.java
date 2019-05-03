@@ -186,7 +186,9 @@ public class MainActivity extends AppCompatActivity {
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 if (dataSnapshot.exists() && !dataSnapshot.child("connection").child("nope").hasChild(currentUId) &&
                         !dataSnapshot.child("connection").child("yup").hasChild(currentUId) ) {
-                    cards Item = new cards(dataSnapshot.getKey(), dataSnapshot.child("fName").getValue().toString());
+                    cards Item = new cards(dataSnapshot.getKey(), dataSnapshot.child("fName").getValue().toString(),
+                            dataSnapshot.child("pic").getValue().toString(), dataSnapshot.child("bio").getValue().toString()
+                            , dataSnapshot.child("utr").getValue().toString(), dataSnapshot.child("nationalRanking").getValue().toString());
 
                     rowItems.add(Item);
                     arrayAdapter.notifyDataSetChanged();
