@@ -2,22 +2,20 @@ package com.example.recruiterglobe;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.recruiterglobe.Chat.ChatActivity;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.lorentzos.flingswipe.SwipeFlingAdapterView;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -25,11 +23,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
-
-
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,8 +32,10 @@ public class MainActivity extends AppCompatActivity {
     private cards cards_data[];
     private arrayAdapter arrayAdapter;
     private int i;
-    private Button mProfile;
-    private Button message;
+    private Button mProfile, mChat;
+    //private Button message;
+    public ImageView image;
+
 
     private FirebaseAuth mAuth;
     private String currentUId;
@@ -83,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mProfile = findViewById(R.id.profile);
         AthleteDb = FirebaseDatabase.getInstance().getReference().child("Athlete");
         mAuth = FirebaseAuth.getInstance();
         currentUId = mAuth.getCurrentUser().getUid();
@@ -91,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
         getAthleteUser();
 
         mProfile = (Button) findViewById(R.id.profile);
+        mChat = (Button) findViewById(R.id.message);
 
         mProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,7 +97,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        mChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ChatActivity.class);
+                startActivity(intent);
+                finish();
+                return;
+            }
+        });
 
+/*
         message = findViewById(R.id.message);
 
         message.setOnClickListener(new View.OnClickListener() {
@@ -114,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
         });
+*/
 
         rowItems= new ArrayList<cards>();
         arrayAdapter = new arrayAdapter(this, R.layout.item, rowItems);
@@ -135,11 +141,17 @@ public class MainActivity extends AppCompatActivity {
                 //Do something on the left!
                 //You also have access to the original object.
                 //If you want to use it just cast it (String) dataObject
+                cards obj = (cards) dataObject;
+                String userId = obj.getUserId();
+                AthleteDb.child(userId).child("connection").child("nope").child(currentUId).setValue(true);
                 Toast.makeText(MainActivity.this, "left", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onRightCardExit(Object dataObject) {
+                cards obj = (cards) dataObject;
+                String userId = obj.getUserId();
+                AthleteDb.child(userId).child("connection").child("yup").child(currentUId).setValue(true);
                 Toast.makeText(MainActivity.this, "right", Toast.LENGTH_SHORT).show();
             }
 

@@ -21,7 +21,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.Map;
 
+
+
+
 public class ChatActivity extends AppCompatActivity {
+
     Object context;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mChatAdaper;

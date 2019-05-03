@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class arrayAdapter extends ArrayAdapter<cards> {
@@ -25,10 +27,20 @@ public class arrayAdapter extends ArrayAdapter<cards> {
         }
 
         TextView name = (TextView) convertView.findViewById(R.id.name);
+        TextView bio = (TextView) convertView.findViewById(R.id.bio);
+        TextView university = (TextView) convertView.findViewById(R.id.university);
         ImageView image = (ImageView) convertView.findViewById(R.id.image);
 
         name.setText(card_item.getName());
-        image.setImageResource(R.mipmap.ic_launcher);
+        bio.setText(card_item.getBio());
+        university.setText(card_item.getUni());
+
+
+        Picasso.with(getContext()).load(card_item.getProfileImageUrl()).into(image);
+
+        System.out.println("Profile!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
+        System.out.println(card_item.getProfileImageUrl());
 
         return convertView;
     }
