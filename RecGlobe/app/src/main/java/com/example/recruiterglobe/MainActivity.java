@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -148,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
                 cards obj = (cards) dataObject;
                 String userId = obj.getUserId();
                 AthleteDb.child(userId).child("connection").child("yup").child(currentUId).setValue(true);
-                Toast.makeText(SecondMainActivity.this, "right", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "right", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -182,7 +183,9 @@ public class MainActivity extends AppCompatActivity {
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 if (dataSnapshot.exists() && !dataSnapshot.child("connection").child("nope").hasChild(currentUId) &&
                         !dataSnapshot.child("connection").child("yup").hasChild(currentUId) ) {
-                    cards Item = new cards(dataSnapshot.getKey(), dataSnapshot.child("fName").getValue().toString());
+                    cards Item = new cards(dataSnapshot.getKey(), dataSnapshot.child("fName").getValue().toString(),
+                            dataSnapshot.child("pic").getValue().toString(), dataSnapshot.child("bio").getValue().toString()
+                            , dataSnapshot.child("utr").getValue().toString(), dataSnapshot.child("nationalRanking").getValue().toString());
 
                     rowItems.add(Item);
                     arrayAdapter.notifyDataSetChanged();

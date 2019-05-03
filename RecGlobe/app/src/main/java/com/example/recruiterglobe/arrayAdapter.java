@@ -30,10 +30,14 @@ public class arrayAdapter extends ArrayAdapter<cards> {
         TextView bio = (TextView) convertView.findViewById(R.id.bio);
         TextView university = (TextView) convertView.findViewById(R.id.university);
         ImageView image = (ImageView) convertView.findViewById(R.id.image);
+        TextView utr = (TextView) convertView.findViewById(R.id.utr);
+        TextView natrank = (TextView) convertView.findViewById(R.id.natrank);
 
         name.setText(card_item.getName());
         bio.setText(card_item.getBio());
-        university.setText(card_item.getUni());
+        utr.setText(card_item.getUtr());
+        natrank.setText(card_item.getNatrank());
+
 
 
         Picasso.with(getContext()).load(card_item.getProfileImageUrl()).into(image);
