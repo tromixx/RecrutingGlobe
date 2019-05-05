@@ -8,12 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.recruiterglobe.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class MatchAdapterCoach extends RecyclerView.Adapter<MatchViewHolderCoach> {
     private List<MatchObjectCoach> matchList;
-    private Context context;
+    Context context;
 
     public MatchAdapterCoach(List<MatchObjectCoach> matchList, Context context){
         this.matchList = matchList;
@@ -34,6 +35,10 @@ public class MatchAdapterCoach extends RecyclerView.Adapter<MatchViewHolderCoach
     @Override
     public void onBindViewHolder(@NonNull MatchViewHolderCoach holderCoach, int position) {
         holderCoach.mMatchId.setText(matchList.get(position).getUserId());
+        holderCoach.mMatchName.setText(matchList.get(position).getName());
+        if(!matchList.get(position).getPic().equals(null)){
+            Picasso.with(context).load(matchList.get(position).getPic()).into(holderCoach.mMatchImage);
+        }
 
     }
 

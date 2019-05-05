@@ -25,6 +25,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 
@@ -147,6 +148,7 @@ public class SecondMainActivity extends AppCompatActivity {
                 cards2 obj = (cards2) dataObject;
                 String userId = obj.getUserId();
                 coachDb.child(userId).child("connection").child("yup").child(currentUId).setValue(true);
+                isConnectionMatched(userId);
                 Toast.makeText(SecondMainActivity.this, "right", Toast.LENGTH_SHORT).show();
             }
 
@@ -168,7 +170,26 @@ public class SecondMainActivity extends AppCompatActivity {
         });
     }
 
-    public void getCoachUser() {
+    private void isConnectionMatched(String userId) {
+        DatabaseReference currentConnectionDb = FirebaseDatabase.getInstance().getReference().child("Athlete").child(currentUId).child("connection").child("yup").child(userId);
+        currentConnectionDb.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()){
+                    Toast.makeText(SecondMainActivity.this, "New Match", Toast.LENGTH_LONG).show();
+                    coachDb.child(dataSnapshot.getKey()).child("connection").child("match").child(currentUId).setValue(true);
+                    FirebaseDatabase.getInstance().getReference().child("Athlete").child(currentUId).child("connection").child("match").child(dataSnapshot.getKey()).setValue(true);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+        public void getCoachUser() {
         DatabaseReference coachDB = FirebaseDatabase.getInstance().getReference().child("coach");
         coachDB.addChildEventListener(new ChildEventListener() {
             @Override

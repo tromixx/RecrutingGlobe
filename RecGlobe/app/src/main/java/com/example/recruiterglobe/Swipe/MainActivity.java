@@ -25,12 +25,13 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class  MainActivity extends AppCompatActivity {
 
     private cards cards_data[];
     private com.example.recruiterglobe.Swipe.arrayAdapter arrayAdapter;
@@ -155,6 +156,7 @@ public class MainActivity extends AppCompatActivity {
                 cards obj = (cards) dataObject;
                 String userId = obj.getUserId();
                 AthleteDb.child(userId).child("connection").child("yup").child(currentUId).setValue(true);
+                isConnectionMatched(userId);
                 Toast.makeText(MainActivity.this, "right", Toast.LENGTH_SHORT).show();
             }
 
@@ -180,6 +182,25 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    }
+
+    private void isConnectionMatched(String userId) {
+        DatabaseReference currentConnectionDb = FirebaseDatabase.getInstance().getReference().child("coach").child(currentUId).child("connection").child("yup").child(userId);
+        currentConnectionDb.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()){
+                    Toast.makeText(MainActivity.this, "New Match", Toast.LENGTH_LONG).show();
+                    AthleteDb.child(dataSnapshot.getKey()).child("connection").child("match").child(currentUId).setValue(true);
+                    FirebaseDatabase.getInstance().getReference().child("coach").child(currentUId).child("connection").child("match").child(dataSnapshot.getKey()).setValue(true);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     public void getAthleteUser() {

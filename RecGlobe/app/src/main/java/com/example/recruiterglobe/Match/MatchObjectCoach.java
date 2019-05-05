@@ -3,10 +3,12 @@ package com.example.recruiterglobe.Match;
 public class MatchObjectCoach {
     private String userId;
     private String name;
+    private String pic;
 
-    public MatchObjectCoach(String userId) {
+    public MatchObjectCoach(String userId, String name, String pic) {
         this.userId = userId;
-        //this.name = name;
+        this.name = name;
+        this.name = pic;
     }
 
     public String getUserId(){
@@ -21,5 +23,12 @@ public class MatchObjectCoach {
     }
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPic(){
+        return pic;
+    }
+    public void setPic(String pic) {
+        this.pic = pic;
     }
 }
