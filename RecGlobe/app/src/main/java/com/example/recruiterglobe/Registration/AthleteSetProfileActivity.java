@@ -1,4 +1,4 @@
-package com.example.recruiterglobe;
+package com.example.recruiterglobe.Registration;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,39 +9,33 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.PhoneNumberUtils;
-import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
+import com.example.recruiterglobe.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CoachSetProfileActivity extends AppCompatActivity {
+public class  AthleteSetProfileActivity extends AppCompatActivity {
 
     private Button mSave;
 
-    private EditText mPhone, mBio, mUni, mUniLnk;
+    private EditText mPhone, mBio, mCity, mState, mCountry, mNranking, mUTR, mAward, mTeam, mLink;
 
     private ImageView mProfileImage;
 
@@ -50,7 +44,7 @@ public class CoachSetProfileActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
 
-    private String cId;
+    private String aId;
 
     private Uri resultUri;
 
@@ -58,18 +52,24 @@ public class CoachSetProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_coach_set_profile);
+        setContentView(R.layout.activity_athlete_set_profile);
 
         mAuth = FirebaseAuth.getInstance();
-        cId = mAuth.getCurrentUser().getUid();
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("coach").child(cId);
+        aId = mAuth.getCurrentUser().getUid();
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Athlete").child(aId);
 
         mSave = (Button) findViewById(R.id.save);
 
         mPhone = (EditText) findViewById(R.id.phone);
         mBio = (EditText) findViewById(R.id.bio);
-        mUni = (EditText) findViewById(R.id.uni);
-        mUniLnk = (EditText) findViewById(R.id.uniLink);
+        mCity = (EditText) findViewById(R.id.city);
+        mState = (EditText) findViewById(R.id.state);
+        mCountry = (EditText) findViewById(R.id.country);
+        mNranking = (EditText) findViewById(R.id.nranking);
+        mUTR = (EditText) findViewById(R.id.utr);
+        mAward = (EditText) findViewById(R.id.award);
+        mTeam = (EditText) findViewById(R.id.team);
+        mLink = (EditText) findViewById(R.id.link);
 
         mProfileImage = (ImageView) findViewById(R.id.profileImage);
 
@@ -94,18 +94,31 @@ public class CoachSetProfileActivity extends AppCompatActivity {
 
     private void saveData() {
         final String bio = mBio.getText().toString();
-        final String uni = mUni.getText().toString();
-        final String uniLnk = mUniLnk.getText().toString();
+        final String city = mCity.getText().toString();
+        final String state = mState.getText().toString();
+        final String country = mCountry.getText().toString();
+        final String nRanking = mNranking.getText().toString();
+        final String UTR = mUTR.getText().toString();
+        final String award = mAward.getText().toString();
+        final String team = mTeam.getText().toString();
+        final String link = mLink.getText().toString();
         final String phone = PhoneNumberUtils.formatNumber(mPhone.getText().toString());
 
-        Map coachProfile = new HashMap();
-        coachProfile.put("bio", bio);
-        coachProfile.put("university", uni);
-        coachProfile.put("uniLink", uniLnk);
-        coachProfile.put("phoneNumber", phone);
-        mDatabase.updateChildren(coachProfile);
+        Map atheleteProfile = new HashMap();
+        atheleteProfile.put("bio", bio);
+        atheleteProfile.put("city", city);
+        atheleteProfile.put("state", state);
+        atheleteProfile.put("phoneNumber", phone);
+        atheleteProfile.put("country", country);
+        atheleteProfile.put("nationalRanking", nRanking);
+        atheleteProfile.put("UTR", UTR);
+        atheleteProfile.put("award", award);
+        atheleteProfile.put("team", team);
+        atheleteProfile.put("link", link);
+        atheleteProfile.put("phoneNumber", phone);
+        mDatabase.updateChildren(atheleteProfile);
         if (resultUri != null) {
-            StorageReference filepath = FirebaseStorage.getInstance().getReference().child("pic").child(cId);
+            StorageReference filepath = FirebaseStorage.getInstance().getReference().child("pic").child(aId);
             Bitmap bitmap = null;
 
             try{
@@ -136,9 +149,9 @@ public class CoachSetProfileActivity extends AppCompatActivity {
                     Log.d("The URL",sdownload_url);
 
 
-                    Map coachProfile = new HashMap();
-                    coachProfile.put("pic", sdownload_url);
-                    mDatabase.updateChildren(coachProfile);
+                    Map atheleteProfile = new HashMap();
+                    atheleteProfile.put("pic", sdownload_url);
+                    mDatabase.updateChildren(atheleteProfile);
 
                     finish();
                     return;
@@ -157,5 +170,4 @@ public class CoachSetProfileActivity extends AppCompatActivity {
             mProfileImage.setImageURI(resultUri);
         }
     }
-
 }

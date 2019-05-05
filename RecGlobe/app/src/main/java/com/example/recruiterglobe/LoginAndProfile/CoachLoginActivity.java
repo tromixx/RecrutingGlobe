@@ -1,4 +1,4 @@
-package com.example.recruiterglobe;
+package com.example.recruiterglobe.LoginAndProfile;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -11,6 +11,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.text.method.LinkMovementMethod;
 
+import com.example.recruiterglobe.R;
+import com.example.recruiterglobe.Registration.CoachRegistrationActivity;
+import com.example.recruiterglobe.Swipe.MainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;

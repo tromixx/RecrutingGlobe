@@ -1,19 +1,17 @@
-package com.example.recruiterglobe;
+package com.example.recruiterglobe.Swipe;
 
-public class cards {
+public class cards2 {
     private String userId;
     private String name;
-    private String utr;
-    private String natrank;
     private String profileImageUrl;
     private String bio;
-    public cards (String userId, String name, String profileImageUrl, String bio, String utr, String natrank){
+    private String uni;
+    public cards2 (String userId, String name, String profileImageUrl, String bio, String uni){
         this.userId = userId;
         this.name = name;
         this.profileImageUrl = profileImageUrl;
         this.bio = bio;
-        this.utr = utr;
-        this.natrank = natrank;
+        this.uni = uni;
     }
 
     public String getUserId(){
@@ -47,19 +45,11 @@ public class cards {
         this.bio = name;
     }
 
-    public String getUtr(){
-        return utr;
+    public String getUni(){
+        return uni;
     }
 
-    public void setUTR() {
-        this.utr = utr;
-    }
-
-    public String getNatrank(){
-        return natrank;
-    }
-
-    public void setNatrank() {
-        this.natrank = natrank;
+    public void setUni(String uni) {
+        this.uni = uni;
     }
 }

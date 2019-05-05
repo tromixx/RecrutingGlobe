@@ -1,16 +1,17 @@
-package com.example.recruiterglobe;
+package com.example.recruiterglobe.LoginAndProfile;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.recruiterglobe.R;
+import com.example.recruiterglobe.Swipe.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -19,8 +20,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
-
-import java.net.URL;
 
 
 public class CoachProfileActivity extends AppCompatActivity {
@@ -54,7 +53,7 @@ public class CoachProfileActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed (){
-        Intent intent = new Intent(CoachProfileActivity.this,MainActivity.class);
+        Intent intent = new Intent(CoachProfileActivity.this, MainActivity.class);
         startActivity(intent);
         finish();
     }
@@ -110,7 +109,7 @@ public class CoachProfileActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
         final String athleteId = currentUser.getUid();
-        coachdb = FirebaseDatabase.getInstance().getReference().child("Coach").child(athleteId);
+        coachdb = FirebaseDatabase.getInstance().getReference().child("coach").child(athleteId);
 
         coachdb.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

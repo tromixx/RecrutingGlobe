@@ -1,4 +1,4 @@
-package com.example.recruiterglobe;
+package com.example.recruiterglobe.LoginAndProfile;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +9,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.recruiterglobe.R;
+import com.example.recruiterglobe.Swipe.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -56,7 +59,7 @@ public class AthleteProfileActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed (){
-        Intent intent = new Intent(AthleteProfileActivity.this,MainActivity.class);
+        Intent intent = new Intent(AthleteProfileActivity.this, MainActivity.class);
         startActivity(intent);
         finish();
     }

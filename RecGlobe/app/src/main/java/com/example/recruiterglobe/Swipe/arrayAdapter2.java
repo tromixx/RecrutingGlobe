@@ -1,4 +1,4 @@
-package com.example.recruiterglobe;
+package com.example.recruiterglobe.Swipe;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.recruiterglobe.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
