@@ -19,12 +19,14 @@ public class MatchAdapterCoach extends RecyclerView.Adapter<MatchViewHolderCoach
     public MatchAdapterCoach(List<MatchObjectCoach> matchList, Context context){
         this.matchList = matchList;
         this.context = context;
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@!!!!!!!!!");
+        System.out.println(matchList);
     }
     @NonNull
     @Override
     public MatchViewHolderCoach onCreateViewHolder(@NonNull ViewGroup parent, int i) {
 
-        View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.coach_match_item, null);
+        View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.coach_match_item, null,false);
         RecyclerView.LayoutParams lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutView.setLayoutParams(lp);
         MatchViewHolderCoach rcv = new MatchViewHolderCoach((layoutView));

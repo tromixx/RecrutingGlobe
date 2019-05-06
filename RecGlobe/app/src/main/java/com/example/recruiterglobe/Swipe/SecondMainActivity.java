@@ -103,7 +103,7 @@ public class SecondMainActivity extends AppCompatActivity {
             }
         });
 
-        mChat.setOnClickListener(new View.OnClickListener() {
+        /*mChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SecondMainActivity.this, ChatActivity.class);
@@ -111,7 +111,7 @@ public class SecondMainActivity extends AppCompatActivity {
                 finish();
                 return;
             }
-        });
+        });*/
 
 
         rowItems = new ArrayList<cards2>();

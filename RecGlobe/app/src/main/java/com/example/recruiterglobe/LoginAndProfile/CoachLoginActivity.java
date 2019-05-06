@@ -14,6 +14,7 @@ import android.text.method.LinkMovementMethod;
 import com.example.recruiterglobe.R;
 import com.example.recruiterglobe.Registration.CoachRegistrationActivity;
 import com.example.recruiterglobe.Swipe.MainActivity;
+import com.example.recruiterglobe.Swipe.SecondMainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -41,7 +42,7 @@ public class CoachLoginActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if(user != null){
-                    Intent intent = new Intent(CoachLoginActivity.this, CoachProfileActivity.class);
+                    Intent intent = new Intent(CoachLoginActivity.this, SecondMainActivity.class);
                     startActivity(intent);
                     finish();
                     return;

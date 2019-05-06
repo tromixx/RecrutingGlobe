@@ -108,8 +108,8 @@ public class CoachProfileActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
-        final String athleteId = currentUser.getUid();
-        coachdb = FirebaseDatabase.getInstance().getReference().child("coach").child(athleteId);
+        final String coachId = currentUser.getUid();
+        coachdb = FirebaseDatabase.getInstance().getReference().child("coach").child(coachId);
 
         coachdb.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

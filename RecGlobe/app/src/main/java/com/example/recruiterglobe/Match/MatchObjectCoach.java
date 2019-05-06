@@ -8,7 +8,7 @@ public class MatchObjectCoach {
     public MatchObjectCoach(String userId, String name, String pic) {
         this.userId = userId;
         this.name = name;
-        this.name = pic;
+        this.pic = pic;
     }
 
     public String getUserId(){

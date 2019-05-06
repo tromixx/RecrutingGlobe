@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.recruiterglobe.LoginAndProfile.AthleteProfileActivity;
 import com.example.recruiterglobe.LoginAndProfile.CoachProfileActivity;
 import com.example.recruiterglobe.Match.MatchForCoach;
 import com.example.recruiterglobe.R;
@@ -94,7 +95,7 @@ public class  MainActivity extends AppCompatActivity {
         mProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CoachProfileActivity.class);
+                Intent intent = new Intent(MainActivity.this, AthleteProfileActivity.class);
                 startActivity(intent);
                 finish();
                 return;
