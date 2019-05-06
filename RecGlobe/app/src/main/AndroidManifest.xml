@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Match.MatchForCoach"></activity>
+        <activity android:name=".Match.MatchForAthlete"></activity>
+        <activity android:name=".Match.MatchForCoach" />
         <activity android:name=".LoginAndProfile.CoachProfileActivity" />
         <activity android:name=".Chat.ChatActivity" />
         <activity android:name=".Swipe.SecondMainActivity" />

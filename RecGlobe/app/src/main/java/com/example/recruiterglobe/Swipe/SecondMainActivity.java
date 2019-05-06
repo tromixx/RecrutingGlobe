@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.recruiterglobe.LoginAndProfile.AthleteProfileActivity;
 import com.example.recruiterglobe.Chat.ChatActivity;
+import com.example.recruiterglobe.Match.MatchForAthlete;
 import com.example.recruiterglobe.R;
 import com.example.recruiterglobe.LoginAndProfile.login_option_activity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -103,15 +104,15 @@ public class SecondMainActivity extends AppCompatActivity {
             }
         });
 
-        /*mChat.setOnClickListener(new View.OnClickListener() {
+        mChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SecondMainActivity.this, ChatActivity.class);
+                Intent intent = new Intent(SecondMainActivity.this, MatchForAthlete.class);
                 startActivity(intent);
                 finish();
                 return;
             }
-        });*/
+        });
 
 
         rowItems = new ArrayList<cards2>();
