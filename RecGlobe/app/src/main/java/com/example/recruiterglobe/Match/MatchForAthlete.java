@@ -14,6 +14,7 @@ import com.example.recruiterglobe.LoginAndProfile.CoachProfileActivity;
 import com.example.recruiterglobe.LoginAndProfile.login_option_activity;
 import com.example.recruiterglobe.R;
 import com.example.recruiterglobe.Swipe.MainActivity;
+import com.example.recruiterglobe.Swipe.SecondMainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -56,7 +57,7 @@ public class MatchForAthlete extends AppCompatActivity {
 
     @Override
     public void onBackPressed (){
-        Intent intent = new Intent(MatchForAthlete.this, MainActivity.class);
+        Intent intent = new Intent(MatchForAthlete.this, SecondMainActivity.class);
         startActivity(intent);
         finish();
     }

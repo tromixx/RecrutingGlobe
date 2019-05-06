@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.recruiterglobe.R;
 import com.example.recruiterglobe.Swipe.MainActivity;
+import com.example.recruiterglobe.Swipe.SecondMainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -53,7 +54,7 @@ public class CoachProfileActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed (){
-        Intent intent = new Intent(CoachProfileActivity.this, MainActivity.class);
+        Intent intent = new Intent(CoachProfileActivity.this, SecondMainActivity.class);
         startActivity(intent);
         finish();
     }
