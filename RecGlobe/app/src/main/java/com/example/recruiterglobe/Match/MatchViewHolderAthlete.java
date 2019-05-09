@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.recruiterglobe.Chat.ChatActivity;
+import com.example.recruiterglobe.Chat.ChatActivity1;
 import com.example.recruiterglobe.R;
 
 public class MatchViewHolderAthlete extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -28,7 +28,7 @@ public class MatchViewHolderAthlete extends RecyclerView.ViewHolder implements V
     @Override
     public void onClick(View view) {
 
-        Intent intent = new Intent(view.getContext(), ChatActivity.class);
+        Intent intent = new Intent(view.getContext(), ChatActivity1.class);
         Bundle b = new Bundle();
         b.putString("matchId", mMatchId.getText().toString());
         intent.putExtras(b);

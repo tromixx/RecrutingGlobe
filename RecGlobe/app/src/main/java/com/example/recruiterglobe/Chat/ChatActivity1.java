@@ -24,7 +24,8 @@ import java.util.List;
 import java.util.Map;
 
 
-public class ChatActivity extends AppCompatActivity {
+
+public class ChatActivity1 extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mChatAdapter;
     private RecyclerView.LayoutManager mChatLayoutManager;
@@ -46,7 +47,7 @@ public class ChatActivity extends AppCompatActivity {
 
         currentUserID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        mDatabaseUser = FirebaseDatabase.getInstance().getReference().child("Athlete").child(currentUserID).child("connection").child("match").child(matchId).child("ChatId");
+        mDatabaseUser = FirebaseDatabase.getInstance().getReference().child("coach").child(currentUserID).child("connection").child("match").child(matchId).child("ChatId");
         mDatabaseChat = FirebaseDatabase.getInstance().getReference().child("Chat");
 
         getChatId();
@@ -54,9 +55,9 @@ public class ChatActivity extends AppCompatActivity {
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mRecyclerView.setNestedScrollingEnabled(false);
         mRecyclerView.setHasFixedSize(false);
-        mChatLayoutManager = new LinearLayoutManager(ChatActivity.this);
+        mChatLayoutManager = new LinearLayoutManager(ChatActivity1.this);
         mRecyclerView.setLayoutManager(mChatLayoutManager);
-        mChatAdapter = new ChatAdapter(getDataSetChat(),ChatActivity.this);
+        mChatAdapter = new ChatAdapter(getDataSetChat(),ChatActivity1.this);
         mRecyclerView.setAdapter(mChatAdapter);
 
         mSendEditText = findViewById(R.id.message);
@@ -156,17 +157,3 @@ public class ChatActivity extends AppCompatActivity {
         return resultsChat;
     }
 }
-/*
-
-//MATCHES VIEW HOLDER
-mMatchImage = Image
-
-@override
-public void onCLick(View view) {
-    Intent intent = new Ontent(view.getContext()), ChatActivity.class);
-    Bundle b = new Bundle();
-    b.putString("matchId", mMatchId.getText().toString());
-    intent.putExtras(b);
-    view.getContext().startActivity(intent);
-}
- */

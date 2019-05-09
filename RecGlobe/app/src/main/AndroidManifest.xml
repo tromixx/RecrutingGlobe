@@ -16,6 +16,7 @@
         <activity android:name=".Match.MatchForCoach" />
         <activity android:name=".LoginAndProfile.CoachProfileActivity" />
         <activity android:name=".Chat.ChatActivity" />
+        <activity android:name=".Chat.ChatActivity1" />
         <activity android:name=".Swipe.SecondMainActivity" />
         <activity android:name=".Registration.AthleteSetProfileActivity" />
         <activity android:name=".Registration.CoachSetProfileActivity" />
